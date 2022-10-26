@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><CRMAcresMessage><Header><MessageID>123456791</MessageID><Timestamp>${dformat}</Timestamp><Operation Data="PlayerFind" Operand="Request" /><Timestamp>${dformat}</Timestamp></Header><Body><PlayerFind><Filter><SearchPlayerID>1067</SearchPlayerID></Filter></PlayerFind></Body></CRMAcresMessage>
