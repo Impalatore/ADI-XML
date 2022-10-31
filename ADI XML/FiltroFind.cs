@@ -4,11 +4,11 @@ using System.Xml.Linq;
 
 namespace ConsoleApp1;
 
-public class Program
+public class FiltroFind
 
 {
     /// Función para llamar a un servicio web SOAP
-    public static void Main2()
+    public static void Main()
     {
         try
         {
@@ -16,41 +16,34 @@ public class Program
             // Falta declarar conexión al ADI
             HttpWebRequest request =
                 (HttpWebRequest)WebRequest.Create(
-                    new Uri("http://10.20.66.3:8085"));
+                    new Uri("http://10.27.66.3:8085"));
             request.Method = "POST";
             request.ContentType = "application/xml";
             request.Accept = "application/xml";
 
             //Configurando variables de entorno
-            //var jugadorDNI = "70398427";
-            var jugadorID = "2057809";
-            var siteID = "1";
-            var balancePoints = "Points";
-            var balanceXPlay = "XtraCredit";
-            var Agregar = "C";
-            var Restar = "D";
-            var Cantidad = "10";
+            var jugadorDNI = "09958319-0000000";
+            var jugadorID = "1055989";
 
             //Constructor de XML usando la librería LinQ
             XElement requestXML =
                 new XElement("CRMAcresMessage",
                     new XElement("Header",
                         //new XElement("TimeStamp", "${dformat}"), //falta declarar el dformat
-                        new XElement("Operation", new XAttribute("Data", "PlayerBalanceAdjustment"),
+                        new XElement("Operation", new XAttribute("Data", "PlayerFind"),
                             new XAttribute("Operand", "Request"))
                     ),
-                    new XElement("PlayerID", jugadorID),
-                    new XElement("SiteID", siteID),
                     new XElement("Body",
-                        new XElement("PlayerBalanceAdjustment",
-                            new XElement("BalanceType", balanceXPlay),
-                            new XElement("LocalOrGlobal", "L"),
-                            new XElement("CreditOrDebit", Agregar),
-                            new XElement("Amount", Cantidad),
-                            new XElement("UserLogin", "ADICORP")
+                        new XElement("PlayerFind",
+                            new XElement("Filter",
+                                new XElement("SearchPlayerID",
+                                    new XElement("PlayerID", jugadorID)  //{ Value = jugadorDNI}
+                                )
+                            )
                         )
                     )
                 );
+
             // Convert the xml into a stream that we write to our request
             byte[] bytes = Encoding.UTF8.GetBytes(requestXML.ToString());
             request.ContentLength = bytes.Length;
@@ -64,8 +57,17 @@ public class Program
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
-                var streamData = reader.ReadToEnd();
-                Console.WriteLine(streamData);
+                var streamData = reader;
+               
+                XElement root = XElement.Load(streamData);
+                IEnumerable<XElement> playersfound =
+                    from el in root.Descendants("PlayersFound")
+                    select el;
+                foreach (XElement el in playersfound)
+                {
+                    Console.WriteLine(( "Resultados encontrados:" + el.Elements("PlayerFound").Count()));
+                    Console.WriteLine(el);
+                }
             }
         }
         catch (Exception ex)
