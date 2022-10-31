@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ConsoleApp1\\ADI XML\\ADI XML.csproj",
+      "projectUniqueName": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ADI-XML\\ADI XML\\ADI XML.csproj",
       "projectName": "ADI XML",
-      "projectPath": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ConsoleApp1\\ADI XML\\ADI XML.csproj",
+      "projectPath": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ADI-XML\\ADI XML\\ADI XML.csproj",
       "packagesPath": "C:\\Users\\Naim\\.nuget\\packages\\",
-      "outputPath": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ConsoleApp1\\ADI XML\\obj\\",
+      "outputPath": "D:\\Proyectos GitHub\\JetBrains Rider\\Trabajo\\ADI-XML\\ADI XML\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Naim\\AppData\\Roaming\\NuGet\\NuGet.Config",

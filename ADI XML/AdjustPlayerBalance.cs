@@ -21,37 +21,46 @@ public class Program
             request.ContentType = "application/xml";
             request.Accept = "application/xml";
 
-            // Configurando variables de entorno
-            // XNamespace jugadorID = "2057809";
+            //Configurando variables de entorno
+            //var jugadorDNI = "70398427";
+            var jugadorID = "2057809";
+            var siteID = "1";
+            var balancePoints = "Points";
+            var balanceXPlay = "XtraCredit";
+            var Agregar = "C";
+            var Restar = "D";
+            var Cantidad = "10";
 
             //Constructor de XML usando la librería LinQ
             XElement requestXML =
                 new XElement("CRMAcresMessage",
                     new XElement("Header",
                         //new XElement("TimeStamp", "${dformat}"), //falta declarar el dformat
-                        new XElement("Operation", new XAttribute("Data", "PlayerFind"),
+                        new XElement("Operation", new XAttribute("Data", "PlayerBalanceAdjustment"),
                             new XAttribute("Operand", "Request"))
                     ),
+                    new XElement("PlayerID", jugadorID),
+                    new XElement("SiteID", siteID),
                     new XElement("Body",
-                        new XElement("PlayerFind",
-                            new XElement("Filter",
-                                new XElement("SearchSSN",
-                                    new XElement("SSN", "70398427")
-                                )
-                            )
+                        new XElement("PlayerBalanceAdjustment",
+                            new XElement("BalanceType", balanceXPlay),
+                            new XElement("LocalOrGlobal", "L"),
+                            new XElement("CreditOrDebit", Agregar),
+                            new XElement("Amount", Cantidad),
+                            new XElement("UserLogin", "ADICORP")
                         )
                     )
                 );
-
             // Convert the xml into a stream that we write to our request
             byte[] bytes = Encoding.UTF8.GetBytes(requestXML.ToString());
             request.ContentLength = bytes.Length;
+            
             using (Stream putStream = request.GetRequestStream())
             {
                 putStream.Write(bytes, 0, bytes.Length);
             }
 
-            // Ejecutar el request y obetener un response "reader"
+            // Ejecutar el request y obtener un response "reader"
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {

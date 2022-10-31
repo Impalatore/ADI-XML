@@ -5,19 +5,27 @@
     <projectFile>ConsoleApp2/ConsoleApp2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04b4693a-d9ba-4ac3-b5fa-a40279853f90" name="Changes" comment="" />
+    <list default="true" id="04b4693a-d9ba-4ac3-b5fa-a40279853f90" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleApp1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleApp1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADI XML/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADI XML/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADI XML/bin/Debug/net6.0/ADI XML.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ADI XML/bin/Debug/net6.0/ADI XML.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADI XML/bin/Debug/net6.0/ADI XML.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ADI XML/bin/Debug/net6.0/ADI XML.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADI XML/obj/Debug/net6.0/ADI XML.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ADI XML/obj/Debug/net6.0/ADI XML.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADI XML/obj/Debug/net6.0/ADI XML.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ADI XML/obj/Debug/net6.0/ADI XML.pdb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ConsoleApp1/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ADI XML/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GbMj2PB3ofdKhipQfpn7MS3xMV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -80,15 +88,37 @@
       <updated>1666652963136</updated>
       <workItem from="1666652964139" duration="288000" />
       <workItem from="1666706700849" duration="1035000" />
-      <workItem from="1666791520372" duration="10289000" />
+      <workItem from="1666791520372" duration="17413000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit Inicial">
+      <created>1666813619337</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666813619337</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Commit Inicial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Inicial" />
   </component>
 </project>
