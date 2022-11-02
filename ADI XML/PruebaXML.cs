@@ -4,7 +4,7 @@ namespace ConsoleApp1;
 
 public class PruebaXML
 {
-    static void Main(string[] args)
+    static void Main3(string[] args)
     {
         var streamData = @"C:\Users\Naim\Desktop\XMLADI.xml";
         
@@ -16,13 +16,11 @@ public class PruebaXML
         foreach (XElement el in search)
         {
             Console.WriteLine("##### JUGADOR ENCONTRADO #####");
-            //Console.Write(el);
             
-            //Falta parsear
-            Console.WriteLine(el.Elements("PlayerID"));
-            Console.WriteLine(el.Elements("FirstName"));
-            Console.WriteLine(el.Elements("LastName"));
-            Console.WriteLine(el.Elements("AddressLine1"));
+            Console.WriteLine(el.Element("PlayerID"));
+            Console.WriteLine(el.Element("FirstName"));
+            Console.WriteLine(el.Element("LastName"));
+            Console.WriteLine(el.Element("AddressLine1"));
         }
     }
 }

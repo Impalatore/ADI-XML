@@ -8,7 +8,7 @@ public class FiltroFind
 
 {
     /// Función para llamar a un servicio web SOAP
-    public static void Main3()
+    public static void Main()
     {
         try
         {
@@ -22,8 +22,7 @@ public class FiltroFind
             request.Accept = "application/xml";
 
             //Configurando variables de entorno
-            var jugadorDNI = "09958319-0000000";
-            var jugadorID = "2033970";
+            var jugadorDNI = "70398427";
 
             //Constructor de XML usando la librería LinQ
             XElement requestXML =
@@ -36,8 +35,8 @@ public class FiltroFind
                     new XElement("Body",
                         new XElement("PlayerFind",
                             new XElement("Filter",
-                                new XElement("SearchPlayerID",
-                                    new XElement("PlayerID", jugadorID)  //{ Value = jugadorDNI}
+                                new XElement("SearchSSN",
+                                    new XElement("SSN", jugadorDNI)  //{ Value = jugadorDNI}
                                 )
                             )
                         )
@@ -58,19 +57,19 @@ public class FiltroFind
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 var streamData = reader;
-
                 XElement root = XElement.Load(streamData);
                 IEnumerable<XElement> search =
-                    from el in root.Descendants("PlayersFound")
+                    from el in root.Descendants("PlayerFound")
                     select el;
+                Console.WriteLine(( "Resultados encontrados: " + root.Descendants("PlayerFound").Count()));
                 foreach (XElement el in search)
                 {
-                    Console.WriteLine(( "Resultados encontrados: " + el.Elements("PlayerFound").Count()));
-                    Console.WriteLine("##############################");
-                    Console.Write(el);
-                    // Console.WriteLine(el.Element("PlayerFound").Elements("PlayerID"));
-                    // Console.WriteLine(el.Element("PlayerFound").Elements("FirstName"));
-                    // Console.WriteLine(el.Element("PlayerFound").Elements("LastName"));
+                    Console.WriteLine("##### JUGADOR ENCONTRADO #####");
+            
+                    Console.WriteLine(el.Element("PlayerID").Value);
+                    Console.WriteLine(el.Element("FirstName").Value);
+                    Console.WriteLine(el.Element("LastName").Value);
+                    Console.WriteLine(el.Element("AddressLine1").Value);
                 }
             }
         }
