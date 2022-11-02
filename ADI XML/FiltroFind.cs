@@ -8,7 +8,7 @@ public class FiltroFind
 
 {
     /// Función para llamar a un servicio web SOAP
-    public static void Main()
+    public static void Main3()
     {
         try
         {
@@ -16,14 +16,14 @@ public class FiltroFind
             // Falta declarar conexión al ADI
             HttpWebRequest request =
                 (HttpWebRequest)WebRequest.Create(
-                    new Uri("http://10.27.66.3:8085"));
+                    new Uri("http://10.20.66.3:8085"));
             request.Method = "POST";
             request.ContentType = "application/xml";
             request.Accept = "application/xml";
 
             //Configurando variables de entorno
             var jugadorDNI = "09958319-0000000";
-            var jugadorID = "1055989";
+            var jugadorID = "2033970";
 
             //Constructor de XML usando la librería LinQ
             XElement requestXML =
@@ -58,15 +58,19 @@ public class FiltroFind
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 var streamData = reader;
-               
+
                 XElement root = XElement.Load(streamData);
-                IEnumerable<XElement> playersfound =
+                IEnumerable<XElement> search =
                     from el in root.Descendants("PlayersFound")
                     select el;
-                foreach (XElement el in playersfound)
+                foreach (XElement el in search)
                 {
-                    Console.WriteLine(( "Resultados encontrados:" + el.Elements("PlayerFound").Count()));
-                    Console.WriteLine(el);
+                    Console.WriteLine(( "Resultados encontrados: " + el.Elements("PlayerFound").Count()));
+                    Console.WriteLine("##############################");
+                    Console.Write(el);
+                    // Console.WriteLine(el.Element("PlayerFound").Elements("PlayerID"));
+                    // Console.WriteLine(el.Element("PlayerFound").Elements("FirstName"));
+                    // Console.WriteLine(el.Element("PlayerFound").Elements("LastName"));
                 }
             }
         }
