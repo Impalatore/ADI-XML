@@ -16,13 +16,14 @@ public class FiltroFind
             // Falta declarar conexión al ADI
             HttpWebRequest request =
                 (HttpWebRequest)WebRequest.Create(
-                    new Uri("http://10.20.66.3:8085"));
+                    new Uri("http://10.27.66.3:8085"));
             request.Method = "POST";
             request.ContentType = "application/xml";
             request.Accept = "application/xml";
 
             //Configurando variables de entorno
-            var jugadorDNI = "70398427";
+            Console.WriteLine("Por favor, ingrese el DNI para realizar la búsqueda:");
+            string jugadorDNI = Console.ReadLine();
 
             //Constructor de XML usando la librería LinQ
             XElement requestXML =
@@ -69,6 +70,7 @@ public class FiltroFind
                     Console.WriteLine(el.Element("PlayerID").Value);
                     Console.WriteLine(el.Element("FirstName").Value);
                     Console.WriteLine(el.Element("LastName").Value);
+                    Console.WriteLine(el.Element("SSN").Value);
                     Console.WriteLine(el.Element("AddressLine1").Value);
                 }
             }
