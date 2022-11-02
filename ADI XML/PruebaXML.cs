@@ -4,7 +4,7 @@ namespace ConsoleApp1;
 
 public class PruebaXML
 {
-    static void Main3(string[] args)
+    static void Test(string[] args)
     {
         var streamData = @"C:\Users\Naim\Desktop\XMLADI.xml";
         

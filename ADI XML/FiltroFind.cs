@@ -8,7 +8,7 @@ public class FiltroFind
 
 {
     /// Función para llamar a un servicio web SOAP
-    public static void Main()
+    public static void Main2()
     {
         try
         {
@@ -65,8 +65,8 @@ public class FiltroFind
                 Console.WriteLine(( "Resultados encontrados: " + root.Descendants("PlayerFound").Count()));
                 foreach (XElement el in search)
                 {
+                    Console.WriteLine(" ");
                     Console.WriteLine("##### JUGADOR ENCONTRADO #####");
-            
                     Console.WriteLine(el.Element("PlayerID").Value);
                     Console.WriteLine(el.Element("FirstName").Value);
                     Console.WriteLine(el.Element("LastName").Value);
